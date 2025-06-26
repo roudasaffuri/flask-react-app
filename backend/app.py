@@ -91,5 +91,18 @@ def signup():
         cursor.close()
         connection.close()
 
+@app.route('/posts', methods=['GET'])
+def posts():
+    posts_data = [
+        {"id": 1, "paragraph": "This is the first post."},
+        {"id": 2, "paragraph": "This is the second post."},
+        {"id": 3, "paragraph": "Here's another post."},
+    ]
+
+    return jsonify(posts_data), 200
+
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)
